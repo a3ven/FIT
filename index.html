@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10251f">
+<meta name="theme-color" content="#090d12">
 <title>Fit20 | تمرین در خانه</title>
 <style>
 :root{--bg:#f4f7f4;--card:#fff;--ink:#172821;--muted:#6b7c73;--green:#176b4b;--lime:#c8f36b;--line:#e3ebe5;--dark:#10251f;--orange:#f2a65a;--shadow:0 12px 32px #173b2810}
@@ -18,6 +18,40 @@ main{padding:26px 0 56px}.section-head{display:flex;justify-content:space-betwee
 .plank-box{display:flex;align-items:center;justify-content:space-between;gap:14px}.plank-number{font-size:34px;font-weight:900;color:var(--green);direction:ltr}.note{font-size:12px;color:var(--muted);margin:8px 0 0}.footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
 .modal{position:fixed;inset:0;background:#07130fcc;display:none;align-items:center;justify-content:center;padding:16px;z-index:10}.modal.show{display:flex}.modal-content{background:white;border-radius:22px;max-width:520px;width:100%;padding:22px;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#edf3ee;border-radius:10px;width:36px;height:36px}.modal-content h2{margin:0}.steps{padding-right:20px;color:#46574d;font-size:14px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:10px 16px;border-radius:12px;display:none;z-index:20;font-size:13px}
 @media(max-width:720px){.wrap{padding:18px}.hero{grid-template-columns:1fr;padding-top:22px}.hero-box{padding:16px}.grid,.timer-layout{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.week-grid{gap:5px}.week-day{padding:8px 2px}.day-card{padding:14px}.day-card .btn{padding:8px 11px;font-size:12px}}
+
+/* Dark theme */
+:root{--bg:#090d12;--card:#121a23;--ink:#edf3f7;--muted:#9aa9b7;--green:#4ade80;--lime:#b8f36b;--line:#273442;--dark:#080d13;--orange:#f2a65a;--shadow:0 12px 32px #0006}
+body{background:var(--bg);color:var(--ink)}
+header{background:#080d13}.hero-box{background:#121e29;border-color:#263543}.stat{background:#ffffff0b}.tag,.hero p,.stat small,.timer p{color:#a9b8c6}
+.tab{background:#1b2733;color:#dce7ef}.tab.active{background:#267849;color:#fff}
+.card,.week-day{background:var(--card);border-color:var(--line)}
+.day-icon,.exercise-icon{background:#1d2b35}.btn.secondary,.mini,.close{background:#23313d;color:#b8f36b}
+.duration,.plank-number{color:#8ee6a7}.week-day.done{background:#183324;border-color:#326d48}.week-day.rest{opacity:.65}
+.modal-content{background:#121a23;color:var(--ink);border:1px solid #2b3946}.steps{color:#c0ccd6}.note,.section-head p,.day-card p,.exercise p{color:var(--muted)}
+.timer{background:#080d13;border:1px solid #273442}.progress{background:#ffffff1a}
+/* Animated exercise teaching panel */
+.demo{margin:16px 0;padding:18px;border:1px solid #2b3b49;border-radius:18px;background:linear-gradient(145deg,#182633,#101820);text-align:center;overflow:hidden}
+.demo-stage{height:112px;display:flex;align-items:center;justify-content:center;gap:22px;direction:ltr}
+.demo-person{font-size:58px;display:inline-block;filter:drop-shadow(0 7px 8px #0006);animation:demoMove 1.8s ease-in-out infinite}
+.demo-arrow{font-size:32px;color:var(--lime);animation:arrowMove 1s ease-in-out infinite alternate}
+.demo-label{font-size:12px;color:#b6c4d0;margin-top:5px}
+.demo-phases{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.demo-phases span{font-size:11px;background:#253543;color:#dce8ef;border-radius:99px;padding:5px 10px}
+@keyframes demoMove{0%,100%{transform:translateY(5px) rotate(-5deg) scale(.96)}50%{transform:translateY(-7px) rotate(5deg) scale(1.04)}}
+@keyframes arrowMove{from{transform:translateX(-5px);opacity:.5}to{transform:translateX(7px);opacity:1}}
+.demo.squat .demo-person{animation:squatMove 1.8s ease-in-out infinite}
+.demo.push .demo-person{animation:pushMove 1.8s ease-in-out infinite}
+.demo.bridge .demo-person{animation:bridgeMove 1.8s ease-in-out infinite}
+.demo.march .demo-person{animation:marchMove .8s ease-in-out infinite alternate}
+.demo.side .demo-person{animation:sideMove 1.4s ease-in-out infinite alternate}
+.demo.core .demo-person{animation:coreMove 1.8s ease-in-out infinite}
+@keyframes squatMove{0%,100%{transform:translateY(-8px) scale(1)}50%{transform:translateY(8px) scale(.92)}}
+@keyframes pushMove{0%,100%{transform:translateX(-8px) rotate(-8deg)}50%{transform:translateX(8px) rotate(8deg)}}
+@keyframes bridgeMove{0%,100%{transform:translateY(8px) rotate(8deg)}50%{transform:translateY(-9px) rotate(-8deg)}}
+@keyframes marchMove{from{transform:translateY(8px) rotate(-12deg)}to{transform:translateY(-8px) rotate(12deg)}}
+@keyframes sideMove{from{transform:translateX(-12px)}to{transform:translateX(12px)}}
+@keyframes coreMove{0%,100%{transform:rotate(-10deg) translateY(3px)}50%{transform:rotate(10deg) translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.demo-person,.demo-arrow{animation:none!important}}
 </style>
 </head>
 <body>
@@ -103,7 +137,19 @@ function resetTimer(){clearInterval(interval);running=false;mode="move";step=0;r
 function finishWorkout(){clearInterval(interval);running=false;if(current)saved[key(week,current.day)]=true;save();render();document.getElementById("timerMode").textContent="آفرین! جلسه تمام شد 🎉";document.getElementById("timerLabel").textContent="آب بخور و چند دقیقه آرام راه برو.";document.getElementById("startBtn").textContent="شروع";current=null;step=0;remaining=0;seconds=1;updateClock();toast("جلسه با موفقیت ثبت شد.")}
 function startPlank(){current={items:[["🧍","پلانک","میان‌تنه",weekTarget(week)+" ثانیه","ساعدها زیر شانه، بدن صاف و شکم منقبض."],["🧍","پلانک","میان‌تنه",weekTarget(week)+" ثانیه","نوبت دوم؛ اگر فرم به هم خورد، زودتر متوقف شو."]],day:null};step=0;mode="move";remaining=weekTarget(week);seconds=remaining;document.getElementById("queue").innerHTML=`<div class="exercise"><div class="exercise-icon">🧍</div><div><h4>پلانک</h4><p>دو نوبت با استراحت ۳۰ تا ۴۵ ثانیه‌ای</p></div><span class="duration">${remaining} ثانیه</span></div>`;document.getElementById("timerMode").textContent="پلانک";document.getElementById("timerLabel").textContent="فرم صحیح مهم‌تر از زمان طولانی است.";updateClock();document.querySelector('#timerMode').scrollIntoView({behavior:"smooth",block:"center"})}
 function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2400)}
-function showExercise(type,i){const x=workouts[type].items[i];document.getElementById("modalTitle").textContent=x[1];document.getElementById("modalBody").innerHTML=`<p><b>هدف:</b> ${x[2]}</p><p>${x[4]}</p><p class="note">حرکت را آهسته و کنترل‌شده انجام بده. اگر درد تیز یا غیرعادی داشتی، متوقف شو.</p>`;document.getElementById("modal").classList.add("show")}
+function showExercise(type,i){
+ const x=workouts[type].items[i % workouts[type].items.length];
+ const name=x[1];
+ let cls="core", phases=["آماده شو","حرکت را انجام بده","آرام برگرد"];
+ if(name.includes("اسکوات")){cls="squat";phases=["پاها به عرض شانه","باسن عقب و پایین","با فشار پاشنه بلند شو"]}
+ else if(name.includes("شنا")){cls="push";phases=["بدن صاف","آرنج‌ها را خم کن","به نقطه شروع برگرد"]}
+ else if(name.includes("پل باسن")){cls="bridge";phases=["به پشت دراز بکش","باسن را بالا ببر","آرام پایین بیاور"]}
+ else if(name.includes("راه رفتن")||name.includes("زانو")||name.includes("قدم")){cls="march";phases=["تنه صاف","پاها را یکی‌یکی حرکت بده","ریتم آرام و پیوسته"]}
+ else if(name.includes("طرفین")||name.includes("پا از طرفین")){cls="side";phases=["کنار تکیه‌گاه بایست","پا را به پهلو ببر","بدون تاب دادن تنه برگرد"]}
+ document.getElementById("modalTitle").textContent=name;
+ document.getElementById("modalBody").innerHTML=`<div class="demo ${cls}"><div class="demo-stage"><span class="demo-person">${x[0]}</span><span class="demo-arrow">↔</span><span style="font-size:34px">${type==="full"?"💪":"❤️"}</span></div><div class="demo-label">نمایش متحرک راهنمای حرکت</div><div class="demo-phases">${phases.map(t=>`<span>${t}</span>`).join("")}</div></div><p><b>هدف:</b> ${x[2]}</p><p>${x[4]}</p><p class="note">حرکت را آهسته و کنترل‌شده انجام بده. کیفیت فرم از تعداد تکرار مهم‌تر است. اگر درد تیز یا غیرعادی داشتی، متوقف شو.</p>`;
+ document.getElementById("modal").classList.add("show")
+}
 function closeModal(){document.getElementById("modal").classList.remove("show")}
 render();updateClock();
 </script>
