@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10251f">
+<title>Fit20 | تمرین در خانه</title>
+<style>
+:root{--bg:#f4f7f4;--card:#fff;--ink:#172821;--muted:#6b7c73;--green:#176b4b;--lime:#c8f36b;--line:#e3ebe5;--dark:#10251f;--orange:#f2a65a;--shadow:0 12px 32px #173b2810}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.7}
+button{font:inherit;cursor:pointer;border:0}.wrap{max-width:1080px;margin:auto;padding:24px}
+header{background:var(--dark);color:white;padding:24px 0 34px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;font-size:23px;letter-spacing:-1px}.brand span{color:var(--lime)}.tag{color:#c4d3ca;font-size:13px}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center;padding-top:32px}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.35;margin:0 0 12px}.hero p{color:#c4d3ca;margin:0 0 22px}.pill{display:inline-block;border:1px solid #ffffff35;border-radius:99px;padding:5px 12px;color:var(--lime);font-size:12px}.hero-box{background:#1c382e;border:1px solid #ffffff18;border-radius:24px;padding:22px}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#ffffff0d;border-radius:14px;padding:12px;text-align:center}.stat b{display:block;font-size:23px;color:var(--lime)}.stat small{font-size:11px;color:#c4d3ca}
+main{padding:26px 0 56px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:26px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:#e7eee8;color:var(--ink);padding:9px 15px;border-radius:12px;font-weight:700}.tab.active{background:var(--green);color:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:var(--shadow)}.day-card{display:flex;gap:14px;align-items:center}.day-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#edf6e5;font-size:26px;flex:none}.day-card h3{margin:0;font-size:16px}.day-card p{margin:2px 0;color:var(--muted);font-size:12px}.day-card .grow{flex:1}.btn{background:var(--green);color:white;padding:10px 16px;border-radius:12px;font-weight:700}.btn.secondary{background:#edf3ee;color:var(--green)}.btn.lime{background:var(--lime);color:var(--dark)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.exercise-list{display:grid;gap:10px}.exercise{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.exercise:last-child{border:0}.exercise-icon{height:50px;width:56px;border-radius:12px;background:#eff5ef;display:grid;place-items:center;font-size:24px}.exercise h4{margin:0;font-size:14px}.exercise p{margin:1px 0 0;color:var(--muted);font-size:12px}.duration{font-size:12px;color:var(--green);font-weight:800;white-space:nowrap}.mini{background:#edf3ee;color:var(--green);border-radius:9px;padding:6px 9px;font-size:11px;font-weight:700}
+.timer{background:var(--dark);color:white;border-radius:22px;padding:22px;text-align:center}.timer .mode{color:var(--lime);font-size:13px}.clock{font-size:clamp(48px,10vw,76px);font-weight:900;direction:ltr;line-height:1.25;font-variant-numeric:tabular-nums}.timer p{color:#c4d3ca;margin:4px 0 16px}.timer-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.progress{height:8px;background:#ffffff20;border-radius:99px;overflow:hidden;margin:15px 0}.progress>i{display:block;height:100%;width:0;background:var(--lime);transition:width .2s}.timer-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.week-day{background:white;border:1px solid var(--line);border-radius:13px;padding:10px 4px;text-align:center}.week-day b{display:block;font-size:12px}.week-day small{display:block;color:var(--muted);font-size:10px}.week-day.done{background:#eaf6df;border-color:#c9e5a8}.week-day.rest{opacity:.6}
+.plank-box{display:flex;align-items:center;justify-content:space-between;gap:14px}.plank-number{font-size:34px;font-weight:900;color:var(--green);direction:ltr}.note{font-size:12px;color:var(--muted);margin:8px 0 0}.footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
+.modal{position:fixed;inset:0;background:#07130fcc;display:none;align-items:center;justify-content:center;padding:16px;z-index:10}.modal.show{display:flex}.modal-content{background:white;border-radius:22px;max-width:520px;width:100%;padding:22px;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#edf3ee;border-radius:10px;width:36px;height:36px}.modal-content h2{margin:0}.steps{padding-right:20px;color:#46574d;font-size:14px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:10px 16px;border-radius:12px;display:none;z-index:20;font-size:13px}
+@media(max-width:720px){.wrap{padding:18px}.hero{grid-template-columns:1fr;padding-top:22px}.hero-box{padding:16px}.grid,.timer-layout{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.week-grid{gap:5px}.week-day{padding:8px 2px}.day-card{padding:14px}.day-card .btn{padding:8px 11px;font-size:12px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="top"><div><div class="brand">FIT<span>20</span></div><div class="tag">تمرین ساده، هر روز بهتر</div></div><span class="pill">بدون تجهیزات · سطح مبتدی</span></div>
+ <div class="hero"><div><h1>۲۰ دقیقه برای<br>بدن قوی‌تر</h1><p>برنامه‌ی چهار هفته‌ای در خانه برای کاهش وزن، افزایش تحرک و تقویت عضلات شکم.</p><button class="btn lime" onclick="document.querySelector('#program').scrollIntoView({behavior:'smooth'})">شروع برنامه ←</button></div>
+ <div class="hero-box"><div class="hero-stats"><div class="stat"><b>۲۰</b><small>دقیقه در روز</small></div><div class="stat"><b>۴</b><small>جلسه در هفته</small></div><div class="stat"><b>۴</b><small>هفته برنامه</small></div></div><p style="color:#c4d3ca;font-size:13px;margin:15px 0 0">پیشرفتت ذخیره می‌شود و می‌توانی هر زمان ادامه بدهی.</p></div></div>
+</div></header>
+<main class="wrap">
+ <section id="program">
+  <div class="section-head"><div><h2>برنامه تمرینی</h2><p>هر جلسه: ۳ دقیقه گرم‌کردن، حدود ۱۲ دقیقه تمرین و ۵ دقیقه سردکردن.</p></div><div class="tabs" id="weekTabs"></div></div>
+  <div class="grid" id="days"></div>
+ </section>
+ <section>
+  <div class="section-head"><div><h2>تایمر تمرین</h2><p>حرکت و استراحت را با تایمر دنبال کن.</p></div></div>
+  <div class="timer-layout">
+   <div class="timer"><div class="mode" id="timerMode">آماده‌ای؟</div><div class="clock" id="clock">00:30</div><p id="timerLabel">برای شروع، یک جلسه را انتخاب کن.</p><div class="progress"><i id="timerProgress"></i></div><div class="timer-controls"><button class="btn lime" id="startBtn" onclick="toggleTimer()">شروع</button><button class="btn secondary" onclick="resetTimer()">بازنشانی</button><button class="btn secondary" onclick="skipTimer()">بعدی</button></div></div>
+   <div class="card"><h3 style="margin-top:0">نوبت تمرین</h3><div id="queue"><p class="note">بعد از انتخاب یک جلسه، فهرست حرکات اینجا نمایش داده می‌شود.</p></div></div>
+  </div>
+ </section>
+ <section>
+  <div class="section-head"><div><h2>پیشرفت هفتگی</h2><p>جلسه‌هایی که کامل کرده‌ای علامت می‌خورند.</p></div></div>
+  <div class="card"><div class="week-grid" id="progressDays"></div><p class="note" id="progressText"></p></div>
+ </section>
+ <section>
+  <div class="section-head"><div><h2>پیشرفت پلانک</h2><p>به‌آرامی زمان نگه‌داشتن پلانک را بیشتر کن.</p></div></div>
+  <div class="card plank-box"><div><b>هدف این هفته</b><p class="note">دو نوبت با استراحت ۳۰ تا ۴۵ ثانیه‌ای</p></div><div class="plank-number" id="plankTarget">15 sec</div><button class="btn" onclick="startPlank()">شروع پلانک</button></div>
+ </section>
+ <p class="footer">Fit20 · تمرین در خانه · قبل از شروع، فضای امن و سطح غیرلغزنده آماده کن.</p>
+</main>
+<div class="modal" id="modal"><div class="modal-content"><div class="modal-head"><h2 id="modalTitle">راهنمای حرکت</h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div><div class="toast" id="toast"></div>
+<script>
+const workouts={
+ full:{title:"کل بدن و میان‌تنه",desc:"روزهای شنبه و سه‌شنبه",icon:"💪",items:[
+ ["🚶","راه رفتن درجا","گرم کردن و بالا بردن ضربان قلب","60 ثانیه","درجا قدم بزن؛ دست‌ها را هم طبیعی حرکت بده."],
+ ["🪑","اسکوات با صندلی","پاها و باسن","30 ثانیه","جلوی صندلی بایست، باسن را عقب بده و آرام بنشین و بلند شو. زانوها هم‌جهت پنجه‌ها باشند."],
+ ["🧱","شنا روی دیوار","سینه، بازو و شانه","30 ثانیه","کف دست‌ها روی دیوار، بدن صاف؛ آرنج‌ها را خم کن و به دیوار نزدیک شو."],
+ ["🌉","پل باسن","باسن و پشت بدن","30 ثانیه","به پشت بخواب، زانوها خم؛ باسن را بالا بیاور و آرام پایین ببر."],
+ ["🐞","ددباگ","عضلات عمقی شکم","30 ثانیه","به پشت بخواب؛ دست و پای مخالف را آرام دور کن، کمر را کنترل کن."],
+ ["🐕","برد داگ","میان‌تنه و تعادل","30 ثانیه","روی دست و زانو، دست و پای مخالف را در امتداد بدن باز کن."]
+ ]},
+ cardio:{title:"هوازی و شکم",desc:"روزهای یکشنبه و پنجشنبه",icon:"❤️",items:[
+ ["👣","قدم زدن طرفین","هوازی کم‌فشار","30 ثانیه","یک قدم به راست و سپس چپ؛ زانوها را کمی نرم نگه دار."],
+ ["🦵","بالا آوردن زانو","هوازی و میان‌تنه","30 ثانیه","درجا زانوها را یکی‌یکی تا حد راحت بالا بیاور."],
+ ["↔️","بالا بردن پا از طرفین","عضلات کناری لگن","30 ثانیه","کنار دیوار بایست و یک پا را بدون خم شدن تنه به طرفین ببر."],
+ ["🧱","پلانک روی دیوار","میان‌تنه","30 ثانیه","دست‌ها روی دیوار، بدن یک خط؛ شکم را منقبض نگه دار."],
+ ["🙆","زانو به آرنج مخالف","شکم و هماهنگی","30 ثانیه","آرام زانوی راست را به سمت آرنج چپ و برعکس نزدیک کن."],
+ ["🦶","لمس پاشنه","عضلات شکم","30 ثانیه","به پشت بخواب، زانوها خم؛ با دست‌ها پاشنه‌ها را یکی‌یکی لمس کن."]
+ ]}
+};
+const dayNames=["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه"];
+let week=1, current=null, step=0, seconds=30, remaining=30, interval=null, running=false, mode="move";
+const saved=JSON.parse(localStorage.getItem("fit20progress")||"{}");
+function save(){localStorage.setItem("fit20progress",JSON.stringify(saved))}
+function key(w,d){return "w"+w+"d"+d}
+function weekTarget(w){return [0,15,20,25,30][w]}
+function render(){
+ document.getElementById("weekTabs").innerHTML=[1,2,3,4].map(w=>`<button class="tab ${w===week?'active':''}" onclick="week=${w};render()">${["اول","دوم","سوم","چهارم"][w-1]}</button>`).join("");
+ document.getElementById("days").innerHTML=dayNames.map((d,i)=>{
+ const isWorkout=[0,1,3,5].includes(i), type=[0,3].includes(i)?"full":"cardio", done=!!saved[key(week,i)];
+ return `<div class="card day-card"><div class="day-icon">${isWorkout?workouts[type].icon:"🌿"}</div><div class="grow"><h3>${d}</h3><p>${isWorkout?workouts[type].title:"استراحت / پیاده‌روی سبک"}</p></div>${isWorkout?`<button class="btn ${done?'secondary':''}" onclick="selectWorkout('${type}',${i})">${done?'مرور':'شروع'}</button>`:`<span class="duration">ریکاوری</span>`}</div>`
+ }).join("");
+ document.getElementById("plankTarget").textContent=weekTarget(week)+" sec";
+ renderProgress();
+}
+function renderProgress(){
+ document.getElementById("progressDays").innerHTML=dayNames.map((d,i)=>`<div class="week-day ${saved[key(week,i)]?'done':''} ${![0,1,3,5].includes(i)?'rest':''}"><b>${d.slice(0,3)}</b><small>${saved[key(week,i)]?'✓ انجام شد':![0,1,3,5].includes(i)?'استراحت':'در انتظار'}</small></div>`).join("");
+ let count=[0,1,3,5].filter(i=>saved[key(week,i)]).length;
+ document.getElementById("progressText").textContent=`این هفته ${count} جلسه از ۴ جلسه را کامل کرده‌ای.`;
+}
+function selectWorkout(type,day){
+ current={type,day,items:[...workouts[type].items,...workouts[type].items]};step=0;mode="move";remaining=week===1?30:week===2?35:week===3?40:45;seconds=remaining;
+ document.getElementById("queue").innerHTML=current.items.map((x,i)=>`<div class="exercise"><div class="exercise-icon">${x[0]}</div><div><h4>${i+1}. ${x[1]}</h4><p>${x[2]}</p></div><button class="mini" onclick="showExercise('${type}',${i})">آموزش</button></div>`).join("");
+ document.getElementById("timerLabel").textContent=current.items[0][1];
+ document.getElementById("timerMode").textContent="حرکت ۱ از ۶";
+ updateClock();document.querySelector('#timerLabel').scrollIntoView({behavior:"smooth",block:"center"});
+}
+function updateClock(){document.getElementById("clock").textContent=String(Math.floor(remaining/60)).padStart(2,"0")+":"+String(remaining%60).padStart(2,"0");document.getElementById("timerProgress").style.width=((seconds-remaining)/seconds*100)+"%";}
+function toggleTimer(){if(!current){toast("اول یک جلسه تمرینی را انتخاب کن.");return}if(running){clearInterval(interval);running=false;document.getElementById("startBtn").textContent="ادامه";return}running=true;document.getElementById("startBtn").textContent="مکث";interval=setInterval(tick,1000)}
+function tick(){remaining--;updateClock();if(remaining<=0){if(mode==="move"){mode="rest";remaining=30;seconds=30;document.getElementById("timerMode").textContent="استراحت";document.getElementById("timerLabel").textContent="نفس بگیر و برای حرکت بعدی آماده شو";}else{step++;if(step>=current.items.length){finishWorkout();return}mode="move";remaining=week===1?30:week===2?35:week===3?40:45;seconds=remaining;document.getElementById("timerMode").textContent=`حرکت ${step+1} از ۱۲`;document.getElementById("timerLabel").textContent=current.items[step][1];}updateClock();}}
+function skipTimer(){if(!current){toast("اول یک جلسه تمرینی را انتخاب کن.");return}if(mode==="move"){mode="rest";remaining=30;seconds=30;document.getElementById("timerMode").textContent="استراحت";document.getElementById("timerLabel").textContent="استراحت کوتاه";}else{step++;if(step>=current.items.length){finishWorkout();return}mode="move";remaining=week===1?30:week===2?35:week===3?40:45;seconds=remaining;document.getElementById("timerMode").textContent=`حرکت ${step+1} از ۱۲`;document.getElementById("timerLabel").textContent=current.items[step][1];}updateClock()}
+function resetTimer(){clearInterval(interval);running=false;mode="move";step=0;remaining=week===1?30:week===2?35:week===3?40:45;seconds=remaining;document.getElementById("startBtn").textContent="شروع";document.getElementById("timerMode").textContent=current?"حرکت ۱ از ۶":"آماده‌ای؟";document.getElementById("timerLabel").textContent=current?current.items[0][1]:"برای شروع، یک جلسه را انتخاب کن.";updateClock()}
+function finishWorkout(){clearInterval(interval);running=false;if(current)saved[key(week,current.day)]=true;save();render();document.getElementById("timerMode").textContent="آفرین! جلسه تمام شد 🎉";document.getElementById("timerLabel").textContent="آب بخور و چند دقیقه آرام راه برو.";document.getElementById("startBtn").textContent="شروع";current=null;step=0;remaining=0;seconds=1;updateClock();toast("جلسه با موفقیت ثبت شد.")}
+function startPlank(){current={items:[["🧍","پلانک","میان‌تنه",weekTarget(week)+" ثانیه","ساعدها زیر شانه، بدن صاف و شکم منقبض."],["🧍","پلانک","میان‌تنه",weekTarget(week)+" ثانیه","نوبت دوم؛ اگر فرم به هم خورد، زودتر متوقف شو."]],day:null};step=0;mode="move";remaining=weekTarget(week);seconds=remaining;document.getElementById("queue").innerHTML=`<div class="exercise"><div class="exercise-icon">🧍</div><div><h4>پلانک</h4><p>دو نوبت با استراحت ۳۰ تا ۴۵ ثانیه‌ای</p></div><span class="duration">${remaining} ثانیه</span></div>`;document.getElementById("timerMode").textContent="پلانک";document.getElementById("timerLabel").textContent="فرم صحیح مهم‌تر از زمان طولانی است.";updateClock();document.querySelector('#timerMode').scrollIntoView({behavior:"smooth",block:"center"})}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2400)}
+function showExercise(type,i){const x=workouts[type].items[i];document.getElementById("modalTitle").textContent=x[1];document.getElementById("modalBody").innerHTML=`<p><b>هدف:</b> ${x[2]}</p><p>${x[4]}</p><p class="note">حرکت را آهسته و کنترل‌شده انجام بده. اگر درد تیز یا غیرعادی داشتی، متوقف شو.</p>`;document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+render();updateClock();
+</script>
+</body></html>
